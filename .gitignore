@@ -361,3 +361,7 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/ConsoleApp1/input_day2_1.txt
+/ConsoleApp1/input_day3_1.txt
+/ConsoleApp1/input_day1_1.txt
+/ConsoleApp1/input_day4_1.txt
