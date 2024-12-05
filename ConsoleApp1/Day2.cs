@@ -37,13 +37,13 @@ namespace ConsoleApp1
 
         public bool IsAscending(int a, int b)
         {
-            return true ? a<b : false;
+            return a<b;
         }
 
         public bool IsDifferenceInRange(int a, int b)
         {
             var diff = Math.Abs(a - b);
-            return true ? diff <= 3 && diff >= 1: false;
+            return diff <= 3 && diff >= 1;
         }
 
 
