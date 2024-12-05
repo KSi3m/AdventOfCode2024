@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Security.Principal;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -109,6 +111,63 @@ namespace ConsoleApp1
                 index = line.IndexOf(searched, index + 1);
             }
             return count;
+        }
+
+        public int Part2()
+        {
+            string filePath = "..\\..\\..\\input_day4_1.txt";
+
+            try
+            {
+                var lines = File.ReadAllLines(filePath);
+
+                int rows = lines[0].Length;
+                int cols = lines.Length;
+
+                int count = 0;
+                for(int j=0;j<cols-2;j++)
+                {
+                    for (int i = 0; i < rows-2; i++)
+                    {
+                        var xmasGrid = new char[3, 3];
+                        for (int k = 0; k < 3; k++)
+                        {
+                            for(int h = 0; h < 3; h++)
+                            {
+                                xmasGrid[k,h] = lines[i + k][j + h];
+                            }
+                        }
+                        if (CheckIfBoxIsXMAS(xmasGrid)) count++;
+                    }
+                }
+                
+
+                return count;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Błąd: {ex.Message}");
+                return 0;
+            }
+
+        }
+        private bool CheckIfBoxIsXMAS(char[,] arr)
+        {
+            var mainDiagonal = string.Join("",Enumerable.Range(0, 3)  
+                             .Select(i => arr[i, i]));
+
+            var secondaryDiagonal = string.Join("", Enumerable.Range(0, 3)
+                                   .Select(i => arr[i, 2 - i]));
+
+
+            string[] searched = { "MAS", "SAM" };
+            if (searched.Any(word => mainDiagonal.Contains(word)) 
+                && searched.Any(word => secondaryDiagonal.Contains(word)))
+            {
+                return true;
+            }
+
+            return false; 
         }
 
     }
