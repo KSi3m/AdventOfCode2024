@@ -1,4 +1,6 @@
-﻿using System.Security;
+﻿using System;
+using System.Diagnostics;
+using System.Security;
 
 namespace ConsoleApp1
 {
@@ -19,10 +21,21 @@ namespace ConsoleApp1
 
             //var day4 = new Day4();
             //Console.WriteLine(day4.Part2());
-            var day5 = new Day5();
-            Console.WriteLine(day5.Part2());
+            /*var day5 = new Day5();
+            Console.WriteLine(day5.Part2());*/
+            var day6 = new Day6();
+            Stopwatch stopwatch = Stopwatch.StartNew();
+            Console.WriteLine(day6.Part1());
+            stopwatch.Stop();
 
+            Console.WriteLine($"Ink: {stopwatch.ElapsedMilliseconds}");
 
+            stopwatch = Stopwatch.StartNew();
+            Console.WriteLine(day6.Part1Rec());
+            stopwatch.Stop();
+            Console.WriteLine($"Rec: {stopwatch.ElapsedMilliseconds}");
+          
         }
+       
     }
 }
