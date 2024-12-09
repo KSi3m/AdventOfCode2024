@@ -35,13 +35,14 @@ namespace ConsoleApp1
              stopwatch.Stop();
              Console.WriteLine($"Rec: {stopwatch.ElapsedMilliseconds}");*/
             //Console.WriteLine(day6.Part2());
-            var day7 = new Day7();
+           // var day7 = new Day7();
 
             //Console.WriteLine(day7.Part2());
-            Console.WriteLine(day7.Part2_Version1());
+           // Console.WriteLine(day7.Part2_Version1());
             
-       
-            
+            var day8 = new Day8();
+            Console.WriteLine(day8.Part1());
+
 
         }
        
