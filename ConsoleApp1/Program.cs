@@ -37,7 +37,8 @@ namespace ConsoleApp1
             //Console.WriteLine(day6.Part2());
             var day7 = new Day7();
 
-            Console.WriteLine(day7.Part1());
+            //Console.WriteLine(day7.Part2());
+            Console.WriteLine(day7.Part2_Version1());
             
        
             
