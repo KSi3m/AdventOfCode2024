@@ -42,6 +42,8 @@ namespace ConsoleApp1
             
             var day8 = new Day8();
             Console.WriteLine(day8.Part1());
+            Console.WriteLine("");
+            Console.WriteLine(day8.Part2());
 
 
         }
