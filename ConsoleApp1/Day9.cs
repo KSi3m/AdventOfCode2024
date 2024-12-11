@@ -150,43 +150,49 @@ namespace ConsoleApp1
                 string[] nonEmptyArray = arr.Where(item => item != "" && item != null).ToArray();
 
 
-                /*foreach (var item in nonEmptyArray)
+               /* foreach (var item in nonEmptyArray)
                 {
                     Console.WriteLine($" {item}");
 
-                }      */          //Console.WriteLine(temp);,
+                }    */         //Console.WriteLine(temp);,
 
-
+             
                 List<int> newListOfIDIndexes = new List<int>() { nonEmptyArray.Length - 1 };
                 string? currentID2 = nonEmptyArray[nonEmptyArray.Length - 1];
                 List<int> indexesToIgnore = new List<int>();
                 for (int i = nonEmptyArray.Length - 2; i > 0; i--)
                 {
+                    var currentString = nonEmptyArray[i];
+                    /*foreach (var item in nonEmptyArray)
+                    {
+                        Console.Write(item);
+                    }                //Console.WriteLine(string.Join("", chars));
+                    Console.WriteLine("");*/
                     if (indexesToIgnore.Contains(i)) continue;
 
-                    if (nonEmptyArray[i] != "." && currentID2 == null)
+                    if (currentString != "." && currentID2 == null)
                     {
-                        currentID2 = nonEmptyArray[i];
+                        currentID2 = currentString;
                         newListOfIDIndexes.Add(i);
                         continue;
                     }
 
-                    if (nonEmptyArray[i] == currentID2)
+                    if (currentString == currentID2)
                     {
                         newListOfIDIndexes.Add(i);
                         continue;
                     }
 
-                    if (nonEmptyArray[i] == "." && !newListOfIDIndexes.Any())
+                    if (currentString == "." && !newListOfIDIndexes.Any())
                     {
-                        nonEmptyArray[i] = "x";
+                        currentString = "x";
                         continue;
                     }
 
-                    if (nonEmptyArray[i] != currentID2)
+                    if (currentString != currentID2)
                     {
                         var freeSpaceIndexes = LeftmostFreeSpaceIndexes(nonEmptyArray, newListOfIDIndexes.Count);
-                        if (newListOfIDIndexes.Count <= freeSpaceIndexes.Count)
+                        if (newListOfIDIndexes.Count <= freeSpaceIndexes.Count && freeSpaceIndexes.Min() < newListOfIDIndexes.Max())
                         {
                             for(int x =0;x< newListOfIDIndexes.Count;x++)
                             {
@@ -197,9 +203,9 @@ namespace ConsoleApp1
 
                         }
                         newListOfIDIndexes.Clear();
-                        if (nonEmptyArray[i] != ".")
+                        if (currentString != ".")
                         {
-                            currentID2 = nonEmptyArray[i];
+                            currentID2 = currentString;
                             newListOfIDIndexes.Add(i);
                         }
                         else
@@ -213,12 +219,12 @@ namespace ConsoleApp1
                 }
                 long checksum = 0;
                 indexesToIgnore.ForEach(x=>Console.Write($"{x},"));
-                Console.WriteLine("");
+                /*Console.WriteLine("");
                 foreach (var item in nonEmptyArray)
                 {
                     Console.Write(item);
                 }                //Console.WriteLine(string.Join("", chars));
-                Console.WriteLine("");
+                Console.WriteLine("");*/
                 for (int i = 0; i < nonEmptyArray.Length; i++)
                  {
 
