@@ -49,12 +49,18 @@ namespace ConsoleApp1
             Console.WriteLine(day9.Part2());
             Console.WriteLine("");*/
             //Console.WriteLine(day9.Part2());
-            var day10 = new Day10();
+            /*var day10 = new Day10();
             Console.WriteLine(day10.Part1());
             Console.WriteLine(day10.Part2());
-            Console.WriteLine("");
+            Console.WriteLine("");*/
+
+            var day11 = new Day11();
+            Console.WriteLine(day11.Part1());
+            /*Console.WriteLine(day10.Part2());
+            Console.WriteLine("");*/
+
 
         }
-       
+
     }
 }
