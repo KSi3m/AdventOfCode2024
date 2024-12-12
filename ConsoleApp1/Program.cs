@@ -51,6 +51,7 @@ namespace ConsoleApp1
             //Console.WriteLine(day9.Part2());
             var day10 = new Day10();
             Console.WriteLine(day10.Part1());
+            Console.WriteLine(day10.Part2());
             Console.WriteLine("");
 
         }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Linq;
 using System.Text;
 using System.Threading.Channels;
@@ -17,11 +18,6 @@ namespace ConsoleApp1
             try
             {
                 var lines = File.ReadAllLines(filePath);
-                var text = string.Join("\n", lines);
-
-                int rows = lines[0].Length;
-                int cols = lines.Length;
-
 
                 int[,] emptyGrid = new int[lines.Length, lines[0].Length];
                 List<(int, int)> positionsOfZero = new List<(int, int)>();
@@ -43,17 +39,17 @@ namespace ConsoleApp1
 
                     }
                 }
+                int count = 0;
                 List<(int, int)> idOf9 = new List<(int, int)>();
-                List<(int, int)> listOfAll = new List<(int, int)>();
 
                 foreach (var item in positionsOfZero)
                 {
-                    Rec(item.Item1, item.Item2, emptyGrid, -1, idOf9);  
-                    listOfAll.AddRange(idOf9.Distinct());
+                    Rec(item.Item1, item.Item2, emptyGrid, -1, idOf9);
+                    count += idOf9.Distinct().Count();
                     idOf9.Clear();
                 }
 
-                return listOfAll.Count;
+                return count;
             }
             catch (Exception ex)
             {
@@ -89,19 +85,14 @@ namespace ConsoleApp1
         }
 
 
-       /* public int Part1()
+       public int Part2()
         {
             string filePath = "..\\..\\..\\input_day10_1.txt";
-            // string filePath = "..\\..\\..\\text.txt";
+            //string filePath = "..\\..\\..\\text.txt";
 
             try
             {
                 var lines = File.ReadAllLines(filePath);
-                var text = string.Join("\n", lines);
-
-                int rows = lines[0].Length;
-                int cols = lines.Length;
-
 
                 int[,] emptyGrid = new int[lines.Length, lines[0].Length];
                 List<(int, int)> positionsOfZero = new List<(int, int)>();
@@ -123,30 +114,16 @@ namespace ConsoleApp1
 
                     }
                 }
-                Console.WriteLine(emptyGrid.GetLength(0));
-                Console.WriteLine(emptyGrid.GetLength(1));
+ 
                 int count = 0;
                 List<(int, int)> idOf9 = new List<(int, int)>();
-                List<(int, int)> listOfAll = new List<(int, int)>();
 
                 foreach (var item in positionsOfZero)
                 {
-                    Console.WriteLine($"\t\t{item}");
-                }
-                foreach (var item in positionsOfZero)
-                {
-                    Console.WriteLine($"\tk{item}");
                     Rec(item.Item1, item.Item2, emptyGrid, -1, idOf9);
-                    listOfAll.AddRange(idOf9.Distinct());
+                    count += idOf9.Count;
                     idOf9.Clear();
                 }
-
-
-                foreach (var item in listOfAll)
-                {
-                    Console.WriteLine($"\t{item}");
-                }
-                Console.WriteLine(listOfAll.Count);
                 return count;
             }
             catch (Exception ex)
@@ -155,6 +132,8 @@ namespace ConsoleApp1
                 return 0;
             }
 
-        }*/
+        }
+
+       
     }
 }
