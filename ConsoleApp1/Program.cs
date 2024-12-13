@@ -64,12 +64,13 @@ namespace ConsoleApp1
             Console.WriteLine($"Ink: {stopwatch.ElapsedMilliseconds}");
 
             stopwatch = Stopwatch.StartNew();*/
-            Console.WriteLine(day11.Part3());
+            //Console.WriteLine(day11.Part2());
             //stopwatch.Stop();
             //Console.WriteLine($"Rec: {stopwatch.ElapsedMilliseconds}"); 
             /*Console.WriteLine(day10.Part2());
             Console.WriteLine("");*/
-
+            var day13 = new Day13();
+            Console.WriteLine(day13.Part2());
 
         }
 
