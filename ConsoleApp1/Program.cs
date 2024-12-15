@@ -55,9 +55,9 @@ namespace ConsoleApp1
             Console.WriteLine("");*/
 
             var day11 = new Day11();
-//Console.WriteLine(day11.Part1());
+            //Console.WriteLine(day11.Part1());
 
-           // Stopwatch stopwatch = Stopwatch.StartNew();
+            // Stopwatch stopwatch = Stopwatch.StartNew();
             /*Console.WriteLine(day11.Part1());
             stopwatch.Stop();
 
@@ -72,8 +72,12 @@ namespace ConsoleApp1
             //var day13 = new Day13();
             //Console.WriteLine(day13.Part2());
 
-            var day14 = new Day14();
-            day14.Part2();
+            /*var day14 = new Day14();
+            day14.Part2();*/
+
+            var day15 = new Day15();
+            Console.WriteLine(day15.Part1());
+
 
         }
 
